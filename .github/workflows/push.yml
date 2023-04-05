@@ -1,8 +1,14 @@
 name: Create and publish a Docker image
 
 on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 1 * *"
   push:
-    branches: ['release']
+    branches:
+      - master
+    paths:
+      - os/*
 
 env:
   REGISTRY: ghcr.io
